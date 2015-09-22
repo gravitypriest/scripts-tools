@@ -7,14 +7,7 @@ Usage: subtitle-timing-confilict.py <file.ass>
 '''
 
 import sys
-
-def timestamp2Seconds(timestamp):
-    timeParts = timestamp.split(':')
-    h = float(timeParts[0])*60*60
-    m = float(timeParts[1])*60
-    s = float(timeParts[2])
-
-    return h + m + s
+from util import bdTimestampToSeconds
 
 def main():
     try:
@@ -28,7 +21,7 @@ def main():
                     # print just timestamps and dialogue
                     printedLine = ','.join([dlgArr[1],dlgArr[2],dlgArr[9]])
                     if prevEndTime:
-                        if timestamp2Seconds(beginTime) < timestamp2Seconds(prevEndTime):
+                        if bdTimestampToSeconds(beginTime) < bdTimestampToSeconds(prevEndTime):
                             print ('WARNING: Subtitle start time is earlier than previous end time ---\n'
                                 '--> Current line:  ' + printedLine + ''
                                 '--> Previous line: ' + prevLine + '\n')
