@@ -17,7 +17,8 @@ def main():
         help='Start offset -- e.g. 3 will start at the 3rd timestamp',
         required=False, default=0)    
     parser.add_argument('-e', '--end', metavar='<num>', type=int,
-        help='End offset -- e.g. 2 will end at the 2nd to last timestamp',
+        help='End offset -- e.g. 2 will cut off trailing chapters starting '
+        'from the 2nd to last timestamp',
         required=False, default=0)
     parser.add_argument('-c', '--chaps', metavar='<num>', type=int,
         help='Number of chapters per episode', required=True)
